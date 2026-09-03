@@ -1,0 +1,384 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#0b0908"><title>FORGE</title><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+:root{--bg:#0b0908;--c:#151110;--c2:#1f1917;--t:#f0e9e4;--t2:#9c8d84;--a:#f97316;--a2:#fb923c;--ac:#ea580c;--al:rgba(249,115,22,.10);--b:#2b2320;--ok:#65a30d;--w:#fbbf24;--sh:0 4px 20px rgba(0,0,0,.4)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);min-height:100vh;-webkit-tap-highlight-color:transparent;padding-bottom:40px;overflow-x:hidden}
+h1,h2,h3,.lb{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:1px}
+.ct{max-width:520px;margin:0 auto;padding:0 12px}
+.tb{position:sticky;top:0;z-index:100;background:rgba(10,14,20,.92);backdrop-filter:blur(10px);padding:13px 14px;display:flex;align-items:center;gap:10px;color:var(--t);border-bottom:1px solid var(--b)}
+.tb h1{font-size:15px;letter-spacing:4px;color:var(--a);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700}
+.tb .bk{background:none;border:none;color:var(--t);font-size:24px;cursor:pointer;padding:2px 6px;line-height:1}
+.tb .ph{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:1px;color:var(--t2);background:var(--c2);padding:4px 9px;border-radius:3px;white-space:nowrap}
+.ih{background:linear-gradient(160deg,#0b0908 0%,#2b1408 45%,#0b0908 100%);padding:44px 20px 38px;text-align:center;margin:0 -12px 22px;position:relative;border-bottom:1px solid var(--b)}
+.ih::after{content:'';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--a),transparent)}
+.ih h1{font-size:42px;letter-spacing:10px;margin-bottom:6px;font-weight:700;background:linear-gradient(90deg,#fbbf24,#f97316,#ea580c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ih .su{font-size:12px;color:var(--t2);letter-spacing:3px;text-transform:uppercase}
+.ih .tg{font-size:11px;color:var(--a);letter-spacing:2px;margin-top:14px;font-family:'Oswald',sans-serif}
+.is{background:var(--c);border:1px solid var(--b);border-left:3px solid var(--a);padding:15px;margin-bottom:11px;border-radius:0 6px 6px 0}
+.is h3{font-size:13px;color:var(--a);margin-bottom:9px;letter-spacing:1.5px}
+.is p,.is li{font-size:13px;line-height:1.65;color:var(--t2)}
+.is ul{padding-left:16px;margin-top:4px}
+.is li{margin-bottom:5px}
+.is b{color:var(--t)}
+.kp{color:var(--a2);font-weight:600}
+.ag{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin:12px 0}
+.ai2{background:var(--al);border:1px solid rgba(56,189,248,.18);padding:9px 6px;text-align:center;font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.5px;color:var(--a2);border-radius:4px}
+.sb{display:block;width:100%;background:linear-gradient(90deg,var(--ac),var(--a));color:#04121c;border:none;font-family:'Oswald',sans-serif;font-size:16px;letter-spacing:3px;padding:16px;margin-top:12px;cursor:pointer;text-transform:uppercase;border-radius:3px;font-weight:700}
+.sb:active{opacity:.85}
+.sb.alt{background:var(--c2);color:var(--a);border:1px solid var(--b)}
+.wg{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding:14px 0}
+.wc{background:var(--c);border:1px solid var(--b);padding:17px 8px;text-align:center;cursor:pointer;border-radius:4px;transition:all .15s}
+.wc:active{transform:scale(.96);border-color:var(--a)}
+.wc .wn{font-family:'Oswald',sans-serif;font-size:26px;color:var(--a);font-weight:700;line-height:1}
+.wc .wl{font-size:9px;color:var(--t2);letter-spacing:1px;text-transform:uppercase;margin-top:6px}
+.wc.pk{border-color:var(--w)}.wc.pk .wn{color:var(--w)}
+.wc.tp{border-color:var(--ok)}.wc.tp .wn{color:var(--ok)}
+.stt{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:2px;color:var(--a);margin:20px 0 10px;padding-bottom:7px;border-bottom:1px solid var(--b)}
+.dg{display:flex;flex-direction:column;gap:9px;padding:10px 0}
+.dc{background:var(--c);border:1px solid var(--b);border-left:4px solid var(--a);padding:15px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;border-radius:0 8px 8px 0;transition:all .15s}
+.dc:active{background:var(--c2)}
+.dc.run{border-left-color:var(--ok)}
+.dc.rest{border-left-color:#4b5563;opacity:.65}
+.dc .dn{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;flex:1;letter-spacing:.5px}
+.dc .dd{font-size:11px;color:var(--t2)}
+.dc .dk{color:var(--ok);font-size:18px}
+.br{background:linear-gradient(135deg,#241209,#0b0908);border:1px solid var(--b);padding:15px;margin:0 0 14px;border-radius:4px;border-top:2px solid var(--a)}
+.br h3{font-size:12px;color:var(--a);letter-spacing:2px;margin-bottom:8px}
+.br p{font-size:13px;line-height:1.7;color:var(--t2)}
+.wu{background:var(--c);margin-bottom:11px;border:1px solid var(--b);border-radius:4px;overflow:hidden}
+.wuh{padding:13px 14px;font-family:'Oswald',sans-serif;font-size:13px;color:var(--t2);display:flex;align-items:center;gap:8px;cursor:pointer;letter-spacing:1px}
+.wuh .wut{font-size:10px;background:var(--c2);padding:3px 8px;border-radius:3px;color:var(--t2);margin-left:auto}
+.wub{display:none;padding:0 14px 12px}
+.wub.op{display:block}
+.we{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--b)}
+.we:last-child{border-bottom:none}
+.wei{flex:1}.wen{font-size:13px;font-weight:600;color:var(--t)}
+.wed{font-size:11px;color:var(--t2);margin-top:3px;line-height:1.45}
+.wev{font-family:'Oswald',sans-serif;font-size:11px;color:var(--a);white-space:nowrap;background:var(--al);padding:4px 8px;border-radius:3px;flex-shrink:0}
+.ec{background:var(--c);margin-bottom:9px;border:1px solid var(--b);border-radius:4px;overflow:hidden}
+.eh{padding:13px 14px;display:flex;align-items:center;gap:8px;cursor:pointer;border-left:4px solid var(--a)}
+.eh.explosive{border-left-color:#f472b6}
+.eh.core{border-left-color:#a78bfa}
+.eh.grip{border-left-color:#64748b}
+.eh.cardio{border-left-color:var(--ok)}
+.eh.wod{border-left-color:#fb923c}
+.eh.legs{border-left-color:#facc15}
+.en{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;flex:1;letter-spacing:.5px}
+.et{font-size:8px;background:var(--al);color:var(--a);padding:3px 7px;font-family:'Oswald',sans-serif;letter-spacing:1px;border-radius:3px;white-space:nowrap}
+.et.pl{background:var(--a);color:#04121c}
+.ey{text-decoration:none;font-size:15px;color:var(--a);padding:2px;flex-shrink:0}
+.eb{padding:0 14px 14px;display:none}
+.eb.op{display:block}
+.em{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0}
+.em span{font-size:10px;color:var(--t2);background:var(--c2);padding:3px 7px;border-radius:3px}
+.em .tp2{font-family:'Oswald',sans-serif;color:var(--a);font-weight:600;background:var(--al)}
+.ht{font-size:12px;color:var(--t2);line-height:1.55;background:var(--c2);padding:10px;margin-bottom:10px;border-left:2px solid var(--a);border-radius:0 4px 4px 0}
+.ht strong{color:var(--a2)}
+.cu{font-size:12px;color:var(--t2);line-height:1.5;background:var(--al);padding:8px 10px;margin-bottom:10px;border-left:2px solid var(--a);border-radius:0 4px 4px 0}
+.rx2{background:var(--c2);padding:11px;margin-bottom:10px;border:1px solid var(--b);border-radius:5px}
+.rx2 .lb{font-size:11px;color:var(--a);letter-spacing:1px;margin-bottom:6px;font-family:'Oswald',sans-serif}
+.rx2 .rv{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:var(--t)}
+.rx2 .nt{font-size:11px;color:var(--t2);margin-top:4px;line-height:1.5}
+.sg2{font-size:11px;color:var(--w);padding:7px 10px;background:rgba(251,191,36,.08);border-left:2px solid var(--w);margin-bottom:10px;border-radius:0 4px 4px 0;line-height:1.5}
+.pd{font-size:11px;color:var(--t2);padding:6px 10px;background:rgba(52,211,153,.07);border-left:2px solid var(--ok);margin-bottom:10px;border-radius:0 4px 4px 0}
+.pd strong{color:var(--ok)}
+.sl{margin:8px 0}
+.sl-t{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:1px;color:var(--t2);margin-bottom:6px}
+.sr{display:flex;align-items:center;gap:5px;margin-bottom:5px;padding:6px 7px;background:var(--bg);border:1px solid var(--b);border-radius:4px}
+.sn2{font-family:'Oswald',sans-serif;font-size:11px;color:var(--a);width:24px;text-align:center;font-weight:700;flex-shrink:0}
+.si{flex:1;display:flex;align-items:center;gap:3px}
+.si input{width:100%;border:none;border-bottom:2px solid var(--b);background:transparent;color:var(--t);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;text-align:center;padding:4px 0;outline:none;-webkit-appearance:none}
+.si input:focus{border-bottom-color:var(--a)}
+.si .u{font-size:9px;color:var(--t2);flex-shrink:0;width:22px}
+.ln{width:100%;border:1px solid var(--b);background:var(--bg);color:var(--t);padding:8px;font-family:'Inter',sans-serif;font-size:12px;resize:vertical;min-height:38px;outline:none;margin-top:6px;border-radius:4px}
+.ln:focus{border-color:var(--a)}
+.cb{display:block;width:100%;background:var(--ok);color:#04121c;border:none;font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:2px;padding:14px;margin-top:16px;cursor:pointer;border-radius:3px;font-weight:600}
+.cb:active{opacity:.85}
+.cb.exp{background:var(--c2);color:var(--a);border:1px solid var(--a)}
+.hd{display:none!important}
+.fi{animation:fi .25s ease}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.otb{width:100%;border-collapse:collapse;font-size:12px;margin:8px 0}
+.otb th{background:var(--c2);color:var(--a);padding:7px 8px;text-align:left;font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:1px;border-bottom:1px solid var(--b)}
+.otb td{padding:7px 8px;border-bottom:1px solid var(--b);color:var(--t2)}
+.otb td b{color:var(--t)}
+.run-tbl{width:100%;border-collapse:collapse;font-size:12px;margin:6px 0}
+.run-tbl td{padding:8px;border-bottom:1px solid var(--b);color:var(--t2)}
+.run-tbl td:first-child{font-family:'Oswald',sans-serif;color:var(--a);width:36px}
+.run-tbl tr.cur td{background:var(--al);color:var(--t)}
+</style></head><body>
+<div class="tb"><button class="bk hd" id="bkB" onclick="goBack()">‹</button><h1 id="tT">FORGE</h1><span class="ph hd" id="phB"></span></div>
+<div class="ct" id="app"></div>
+<script>
+const Y=q=>"https://www.youtube.com/results?search_query="+encodeURIComponent(q+" technique");
+const DN=['','A · JAMBES QUAD','B · HAUT 1 LOURD','C · JAMBES POST + WOD','D · HAUT 2 VOLUME','COURSE ×2'];
+const PH=['','V1 · REPRISE','V1 · REPRISE','V1 · REPRISE','V1 · CHARGE','V2 · CONTRASTE','V2 · CONTRASTE','V2 · PIC','DELOAD','V3 · STATO','V3 · STATO','V3 · PIC','DELOAD'];
+const LS='forge_';
+let S={p:'intro',w:1,d:1,oEx:null,oWu:false};
+function sv(k,v){try{localStorage.setItem(LS+k,JSON.stringify(v))}catch(e){}}
+function ld(k,d){try{let v=localStorage.getItem(LS+k);return v?JSON.parse(v):d}catch(e){return d}}
+function gL(w,d,ei,si,f){return ld(w+'_'+d+'_'+ei+'_'+si+'_'+f,'')}
+function sL(w,d,ei,si,f,v){sv(w+'_'+d+'_'+ei+'_'+si+'_'+f,v)}
+function gN(w,d,ei){return ld('n_'+w+'_'+d+'_'+ei,'')}
+function sN(w,d,ei,v){sv('n_'+w+'_'+d+'_'+ei,v)}
+function gDn(w,d){return ld('dn_'+w+'_'+d,false)}
+function sDn(w,d){sv('dn_'+w+'_'+d,true)}
+function nav(p,ps){ps=ps||{};S=Object.assign({},S,{p:p},ps,{oEx:null,oWu:false});render();window.scrollTo(0,0)}
+function goBack(){S.p==='day'?nav('days',{w:S.w}):S.p==='days'?nav('weeks'):S.p==='weeks'?nav('intro'):S.p==='goals'?nav('intro'):nav('intro')}
+function tEx(id){S.oEx=S.oEx===id?null:id;document.querySelectorAll('.eb').forEach(function(e){e.classList.remove('op')});var el=document.getElementById(id);if(el&&S.oEx===id)el.classList.add('op')}
+function tWu(){S.oWu=!S.oWu;var el=document.getElementById('wuBody');if(el)el.classList.toggle('op',S.oWu)}
+function Wk(a){var r={};a.forEach(function(x){r[x[0]]={rx:x[1],note:x[2]||'',sg:x[3]||''}});return r}
+
+var BF={
+1:'<span class="kp">V1 · REPRISE — NE CHARGE PAS.</span> Après 1 mois off, tes muscles se souviennent mais tendons, dos et SNC non. ~63% au squat, RIR 3-4, ça DOIT sembler facile. C\'est voulu : on évite les courbatures qui te feraient sauter la séance suivante. Méthode : TEMPO. Note tout, c\'est ta base.',
+2:'<span class="kp">V1 · REPRISE.</span> Légère montée. Toujours loin de l\'échec sur les barres. Sur les MACHINES, tu peux déjà pousser plus près de l\'échec (c\'est sans risque). Côté faible TOUJOURS en premier sur l\'unilatéral.',
+3:'<span class="kp">V1 · REPRISE — dernière.</span> Test Broad Jump cette semaine (référence). Si aucune douleur et gestes propres, tu es prêt à charger en S4.',
+4:'<span class="kp">V1 · CHARGE.</span> Première vraie charge du bloc. RIR 2-3 sur les barres, RIR 0-1 sur les machines et isolations. Double progression : haut de fourchette sur toutes les séries → tu montes.',
+5:'<span class="kp">V2 · CONTRASTE — nouvelles méthodes.</span> Le squat passe en contraste (lourd + speed enchaînés), l\'incliné en stato 2 temps (baisse la charge ~10%), le militaire en stato. Nouvelles sensations, même exercices. Dropsets et myo-reps arrivent sur les isolations.',
+6:'<span class="kp">V2 · CONTRASTE.</span> Charges montent sur les nouvelles méthodes. La sensation change complètement du bloc 1 — c\'est le but.',
+7:'<span class="kp">V2 · PIC.</span> Semaine la plus dure de la vague 2. RIR 0-1 sur les machines, RIR 1 sur les barres. Le WOD de cette semaine touche le sled (station HYROX).',
+8:'<span class="kp">DELOAD.</span> -40% de volume. Le corps assimile — c\'est là que la construction se fait. Ne saute pas cette semaine, elle prépare la vague 3.',
+9:'<span class="kp">V3 · STATO.</span> Dernière vague : pauses en position basse, charges plus élevées, moins de reps sur les barres. Les tractions passent en cluster (EMOM). Tu devrais battre tes charges de la vague 1.',
+10:'<span class="kp">V3 · STATO.</span> On monte encore. Surveille la récup (sommeil, appétit, perfs course). Si tu stagnes 2 semaines de suite, dis-le-moi.',
+11:'<span class="kp">V3 · PIC — semaine la plus lourde du bloc.</span> RIR 0-1 partout. Re-teste le Broad Jump (cible ≥2.90m). Donne tout, le deload arrive.',
+12:'<span class="kp">DELOAD FINAL.</span> -40%. Tu clôtures FORGE. Envoie-moi tes exports pour le bilan (charges, écarts G/D, poids) — puis on enchaîne sur un bloc force court en décembre, avant la prépa HYROX de janvier.'};
+
+var WU={
+QUAD:{nm:'ÉCHAUFFEMENT JAMBES QUAD',dur:'10 min',ex:[
+{n:'Vélo ou rameur',v:'4min',d:'Montée en température générale.'},
+{n:'90/90 Hip + Leg Swings',v:'8/sens',d:'Ouverture hanches avant squat.'},
+{n:'Goblet Squat Hold',v:'2×20s',d:'Squat profond tenu, coudes poussent les genoux.'},
+{n:'Montée en charge squat',v:'vide→60→85→...',d:'Séries progressives jusqu\'à la charge de travail. NE PAS sauter.'}]},
+POST:{nm:'ÉCHAUFFEMENT POSTÉRIEUR',dur:'10 min',ex:[
+{n:'Vélo ou rameur',v:'4min',d:'Température générale.'},
+{n:'Cat-Cow + extension thoracique',v:'10',d:'Mobilise la colonne avant le RDL.'},
+{n:'Band Pull-Through',v:'2×12',d:'Hinge à vide, active fessiers/ischios.'},
+{n:'Montée en charge RDL',v:'vide→60→90→...',d:'Progressif, dos neutre dès la barre vide.'}]},
+PUSH:{nm:'ÉCHAUFFEMENT HAUT 1',dur:'8 min',ex:[
+{n:'Vélo ou rameur',v:'3min',d:'Température.'},
+{n:'Band Pull-Apart',v:'2×15',d:'Réveil du haut du dos avant de pousser.'},
+{n:'Shoulder Dislocates',v:'2×10',d:'Mobilité épaule.'},
+{n:'Scapular Pull-Ups + Push-Ups',v:'2×8',d:'Prépare tractions ET développé.'},
+{n:'Montée en charge',v:'progressive',d:'Sur l\'incliné, puis sur les tractions (2-3 reps à vide avant de lester).'}]},
+PULL:{nm:'ÉCHAUFFEMENT HAUT 2',dur:'8 min',ex:[
+{n:'Vélo ou rameur',v:'3min',d:'Température.'},
+{n:'Band Pull-Apart',v:'2×15',d:'Rétraction scapulaire.'},
+{n:'Shoulder Dislocates',v:'2×10',d:'Mobilité épaule — important avant le militaire.'},
+{n:'Band Face Pull',v:'2×12',d:'Rotateurs + delt postérieur.'},
+{n:'Montée en charge militaire',v:'barre vide×10 puis progressif',d:'Le militaire debout demande un vrai échauffement.'}]},
+RUN:{nm:'ÉCHAUFFEMENT COURSE',dur:'8-12 min',ex:[
+{n:'Jogging progressif',v:'8-12min',d:'Z1 → Z2. Plus long avant une sortie vive.'},
+{n:'Lignes droites',v:'2-3×20m',d:'Seulement avant tempo/intervalles.'}]}
+};
+
+var DAYS=[
+{day:1,nm:'A — JAMBES QUAD',wu:'QUAD',type:'gym',dur:['~72','~72','~75','~78','~78','~80','~80','~58','~80','~80','~82','~58'],ex:[
+{n:'Explosivité / Contraste',tag:'explosive',yt:Y('broad jump box jump speed squat'),tempo:'Maximal',rest:'1m30-2m',sets:0,
+howto:'<strong>EN OUVERTURE, SNC frais. Entretient ta puissance (Broad Jump 2.95m) ET potentialise le squat qui suit (effet PAP).</strong><br><strong>V1 (S1-S4) :</strong> sauts simples, box jump / broad jump, récup complète.<br><strong>V2 (S5-S8) :</strong> intégré en CONTRASTE avec le squat (voir exo suivant) — ici juste 2-3 sauts d\'activation.<br><strong>V3 (S9-S12) :</strong> depth jump / tuck jump, réactivité.<br>Mesure du Broad Jump en S3 et S11.',cue:'3 sauts max par série, jamais dans la fatigue. Premier truc à sauter si tu es cuit.',
+weeks:Wk([[1,'Box Jump 3×3','Technique, léger'],[2,'Box Jump 3×3',''],[3,'Broad Jump 3×3','TEST — note la distance'],[4,'Box Jump 3×3 (de + en + haut)',''],[5,'Activation 2×3 box jump','Le contraste est sur le squat'],[6,'Activation 2×3 box jump',''],[7,'Activation 2×3 box jump',''],[8,'2×3 léger','Deload'],[9,'Tuck Jump 3×4','Réactivité'],[10,'Depth Jump 3×3','Contact <0.25s'],[11,'Broad Jump 3×3','TEST — cible ≥2.90m'],[12,'2×3 léger','Deload']]),
+fatigue:{rx:'SKIP',note:''}},
+{n:'Back Squat',tag:'pillar',yt:Y('back squat tempo speed'),tempo:'voir méthode',rest:'2m30-3m',sets:4,
+howto:'<strong>Moteur n°1. 1RM = 150kg. La MÉTHODE change à chaque vague, l\'exercice reste.</strong><br><br><strong>V1 — TEMPO (S1-S4) :</strong> descente 3s, pause 1s, remontée explosive. S1-S3 = reprise, charges basses volontairement.<br><strong>V2 — CONTRASTE (S5-S8) :</strong> série lourde IMMÉDIATEMENT suivie d\'un mouvement rapide (speed gobelet squat ou broad jump). Le lourd potentialise l\'explosif.<br><strong>V3 — STATO (S9-S12) :</strong> pause 2s en bas, puis remontée en vitesse max. Développe la force en position basse.<br><br>% de 150kg : 64%=96 · 70%=105 · 73%=110 · 77%=115 · 80%=120 · 82%=123 · 85%=127',cue:'Surveille la symétrie : bassin droit, pas de dérive latérale.',
+weeks:Wk([[1,'3×8 @95kg · tempo 3.0.1.2','RIR 4 — DOIT sembler facile'],[2,'3×8 @105 · tempo','RIR 3-4'],[3,'4×8 @110 · tempo','RIR 3'],[4,'4×6-8 @120 · tempo','1ère vraie charge'],[5,'4×(5 @110 + 8 speed gobelet)','V2 CONTRASTE'],[6,'4×(5 @115 + 5 broad jump)','Contraste'],[7,'4×(4 @120 + 8 speed gobelet)','Contraste lourd'],[8,'2×6 @95','DELOAD'],[9,'4×5 @115 · pause 2s en bas','V3 STATO'],[10,'4×5 @120 · pause 2s',''],[11,'4×4 @127 · pause 1s','PIC'],[12,'2×6 @95','DELOAD']]),
+fatigue:{rx:'3×8 -20%',note:''}},
+{n:'Presse à cuisses UNILATÉRALE',tag:'legs',parts:['Jambe FAIBLE (en 1er)','Jambe forte'],yt:Y('single leg press'),tempo:'3-0-2-0',rest:'90 sec',sets:4,
+howto:'<strong>UNILATÉRAL — correction asymétrie (priorité) + volume quad en sécurité.</strong> Machine = tu peux aller près de l\'échec sans risque, contrairement au squat.<br><strong>RÈGLE ABSOLUE :</strong> jambe FAIBLE en premier. La jambe forte ne fait QUE le nombre de reps que la faible a réussi.<br>Log les 2 côtés — l\'écart doit se réduire sur le bloc.<br><em>Alternative : hack squat unilatéral, fentes marchées.</em>',cue:'Faible d\'abord. Fort ≤ faible. Amplitude complète.',
+weeks:Wk([[1,'3×12/jambe','Calibrer + noter écart G/D'],[2,'3×12/j +charge',''],[3,'3×10-12/j +charge',''],[4,'4×10-12/j','RIR 2'],[5,'4×10-12/j +ch','RIR 2'],[6,'4×10-12/j +ch',''],[7,'4×8-12/j +ch','RIR 1'],[8,'2×12/j léger','Deload'],[9,'4×10-12/j +ch',''],[10,'4×8-12/j +ch','RIR 1'],[11,'4×8-12/j max +dropset','PIC'],[12,'2×12/j léger','Deload']]),
+fatigue:{rx:'2×12/j léger',note:''}},
+{n:'Quad Machine (variante par vague)',tag:'legs',yt:Y('hack squat leg extension'),tempo:'2-1-3-0',rest:'75 sec',sets:3,
+howto:'<strong>Volume quad pur, près de l\'échec. La machine change à chaque vague.</strong><br><strong>V1 :</strong> Leg Extension — isolation, contraction 1s, descente 3s.<br><strong>V2 :</strong> Hack Squat — position étirée sous charge, amplitude complète.<br><strong>V3 :</strong> Squat pieds serrés en TENSION CONTINUE (jamais d\'arrêt en haut) OU leg extension avec dropset.<br><strong>Intensification dès V2 :</strong> dropset ou myo-reps sur la dernière série.',cue:'Ici tu vas VRAIMENT près de l\'échec — c\'est sûr sur machine.',
+weeks:Wk([[1,'Leg Ext 3×12-15','Calibrer'],[2,'Leg Ext 3×12-15 +ch',''],[3,'Leg Ext 3×12-15 +ch',''],[4,'Leg Ext 3×10-15','RIR 1'],[5,'Hack Squat 3×10-12','V2 — recalibrer'],[6,'Hack Squat 3×10-12 +ch',''],[7,'Hack Squat 3×8-12 +ch','RIR 0-1'],[8,'3×15 léger','Deload'],[9,'Pieds serrés tension continue 3×12','V3'],[10,'Pieds serrés 3×12 +ch',''],[11,'Leg Ext 3×12 + dropset','PIC'],[12,'3×15 léger','Deload']]),
+fatigue:{rx:'2×15',note:''}},
+{n:'Mollets Debout',tag:'legs',yt:Y('standing calf raise'),tempo:'2-2-3-0',rest:'60 sec',sets:4,
+howto:'<strong>PRIORITÉ DU BLOC (point faible génétique). Dose 1/3 de la semaine.</strong> Debout = gastrocnémiens (le volume visible). Amplitude COMPLÈTE : étirement max en bas tenu 2-3s, montée 2s, contraction haute tenue.<br><strong>Dès V2 :</strong> myo-reps sur la dernière série (une série à l\'échec, puis 3-4 mini-séries de 4-5 reps avec 15s de repos).',cue:'Étirement en bas = le gain. Jamais de rebond.',
+weeks:Wk([[1,'4×12-15','Calibrer'],[2,'4×12-15 +ch',''],[3,'4×12-15 +ch',''],[4,'4×10-15','RIR 1'],[5,'4×10-15 +ch +myo-reps',''],[6,'4×10-15 +ch +myo',''],[7,'4×10-15 +ch +myo','RIR 0'],[8,'2×15 léger','Deload'],[9,'4×10-15 +ch',''],[10,'4×10-15 +ch +myo',''],[11,'4×10-15 max +myo','PIC'],[12,'2×15 léger','Deload']]),
+fatigue:{rx:'3×15',note:''}},
+{n:'Abdos — Flexion chargée',tag:'core',yt:Y('cable crunch hanging leg raise'),tempo:'Contrôlé',rest:'45-60 sec',sets:0,
+howto:'<strong>Dose 1/2 de la semaine. En surplus = le moment d\'ÉPAISSIR le grand droit (il se révélera à la prochaine sèche).</strong><br><strong>Cable Crunch à genoux CHARGÉ :</strong> le mouvement qui fait grossir les abdos. Flexion complète, charge progressive comme n\'importe quel muscle.<br><strong>Hanging Leg Raises :</strong> abdos bas. Progression : genoux → jambes tendues → lestées.<br>Le gainage travaille déjà beaucoup via squat/RDL/front — ici on charge.',cue:'La progression = la charge du crunch qui monte, pas le nombre de reps.',
+weeks:Wk([[1,'Crunch 3×12-15 + LR 3×10-12','Calibrer'],[2,'idem +charge',''],[3,'idem +charge',''],[4,'Crunch 3×10-12 lourd + LR 3×12',''],[5,'idem +charge','LR jambes tendues'],[6,'idem +charge',''],[7,'idem +charge','RIR 0-1'],[8,'2 séries légères','Deload'],[9,'Crunch 3×10-12 + LR lestées 3×10',''],[10,'idem +charge',''],[11,'Crunch max + LR lestées','PIC'],[12,'2 séries légères','Deload']]),
+fatigue:{rx:'2 séries légères',note:''}}]},
+
+{day:2,nm:'B — HAUT 1 · LOURD',wu:'PUSH',type:'gymshort',dur:['~65','~65','~68','~70','~70','~70','~70','~52','~70','~70','~70','~52'],ex:[
+{n:'Développé Incliné',tag:'pillar',yt:Y('incline bench press'),tempo:'voir méthode',rest:'2m30',sets:4,
+howto:'<strong>Moteur pec, fait FRAIS en 1er. Référence couché plat : 97.5kg×5.</strong> Banc 30°, omoplates rétractées.<br><br><strong>V1 — TEMPO :</strong> descente 3s, pause 1s en bas, poussée contrôlée.<br><strong>V2 — STATO 2 TEMPS :</strong> 2s d\'arrêt sur la poitrine PUIS 2s d\'arrêt à 5cm au-dessus, puis terminer. Brutal, développe la force en position basse.<br><strong>V3 — LOURD + VITESSE :</strong> charge plus élevée, intention de vitesse maximale à la remontée.<br><em>Alternative : haltères (meilleure amplitude + corrige l\'asymétrie), machine convergente.</em>',cue:'Pec HAUT = le rendu visible. Amplitude complète.',
+weeks:Wk([[1,'3×8-10 · tempo 3.1.2.0','RIR 4 — léger'],[2,'3×8-10 +ch · tempo','RIR 3-4'],[3,'4×8 +ch · tempo','RIR 3'],[4,'4×6-8 · tempo','Vraie charge'],[5,'4×6 · STATO 2 temps','V2 — baisse la charge ~10%'],[6,'4×6 · STATO +ch',''],[7,'4×5-6 · STATO +ch','RIR 1'],[8,'2×8 -40%','DELOAD'],[9,'4×5-6 lourd · vitesse max','V3'],[10,'4×5-6 +ch',''],[11,'4×4-5 max','PIC'],[12,'2×8 -40%','DELOAD']]),
+fatigue:{rx:'3×8 -20%',note:''}},
+{n:'Tractions Lestées',tag:'pillar',yt:Y('weighted pull ups'),tempo:'voir méthode',rest:'2m30',sets:4,
+howto:'<strong>Moteur dos, fait FRAIS en 2e. Référence : +35kg×4.</strong> Ceinture/gilet, amplitude COMPLÈTE, dépression scapulaire.<br><br><strong>V1 — TEMPO :</strong> descente 3s contrôlée.<br><strong>V2 — LOURD :</strong> charges max, 4-6 reps.<br><strong>V3 — EMOM/CLUSTER :</strong> séries fractionnées pour accumuler du volume lourd.<br>Alterne pronation large (lats) et supination (dos + biceps chargés).<br><em>Pas de sangles tant que le grip suit.</em>',cue:'Zéro kipping. Amplitude complète ou la rep ne compte pas.',
+weeks:Wk([[1,'3×6-8 @+10-15kg','RIR 4'],[2,'3×6-8 +ch','RIR 3-4'],[3,'4×6-8 @+20-25','RIR 3'],[4,'4×5-7 @+27.5-30','Vraie charge'],[5,'4×5-6 +ch','V2 lourd'],[6,'4×5-6 +2.5kg',''],[7,'4×4-6 +2.5kg','RIR 1'],[8,'2×6 BW','DELOAD'],[9,'EMOM 8min: 3 reps @+30','V3 cluster'],[10,'EMOM 8min: 3 reps +2.5kg',''],[11,'4×4-5 max','PIC — vise >+37.5'],[12,'2×6 BW','DELOAD']]),
+fatigue:{rx:'3×max BW',note:''}},
+{n:'Row Unilatéral',tag:'accessory',parts:['Bras FAIBLE (en 1er)','Bras fort'],yt:Y('single arm row machine'),tempo:'2-1-2-1',rest:'2 min',sets:4,
+howto:'<strong>Épaisseur dos + correction asymétrie (ta priorité).</strong> Panatta Super Row (High ou Low), Hammer MTS iso-latéral, ou rowing haltère un bras. Étirement complet devant, squeeze 1s derrière.<br><strong>RÈGLE :</strong> bras FAIBLE en premier, le fort ne dépasse pas ses reps.<br><em>Alternative : poulie basse un bras, T-Bar chest supported.</em>',cue:'Tire avec le coude. Log G/D, l\'écart doit se réduire.',
+weeks:Wk([[1,'3×10-12/bras','Calibrer + noter écart'],[2,'3×10-12/bras +ch',''],[3,'4×10-12/bras +ch',''],[4,'4×8-12/bras','RIR 2'],[5,'4×8-12/bras +ch',''],[6,'4×8-12/bras +ch',''],[7,'4×8-10/bras +ch','RIR 1'],[8,'2×12/bras léger','Deload'],[9,'4×8-12/bras +ch',''],[10,'4×8-10/bras +ch',''],[11,'4×8-10/bras max','PIC'],[12,'2×12/bras léger','Deload']]),
+fatigue:{rx:'3×12/bras léger',note:''}},
+{n:'Écarté / Fly',tag:'accessory',yt:Y('cable fly pec deck'),tempo:'2-1-3-0',rest:'75 sec',sets:3,
+howto:'<strong>Isolation pec en position ÉTIRÉE = le levier hypertrophie n°1.</strong> Pec deck, poulies vis-à-vis, ou fly incliné à disques. Ouverture LENTE 3s en cherchant l\'étirement, refermer en serrant 1s.<br><strong>Dès V2 :</strong> dropset sur la dernière série.',cue:'Ne descends pas plus bas que ce que tu contrôles. C\'est ici qu\'on va près de l\'échec.',
+weeks:Wk([[1,'3×12-15','Calibrer'],[2,'3×12-15 +ch',''],[3,'3×12-15 +ch',''],[4,'3×10-15','RIR 1'],[5,'3×10-15 +ch +dropset',''],[6,'3×10-15 +ch +dropset',''],[7,'3×10-15 +ch +dropset','RIR 0'],[8,'2×15 léger','Deload'],[9,'3×10-15 +ch',''],[10,'3×10-15 +ch +dropset',''],[11,'3×10-15 max +dropset','PIC'],[12,'2×15 léger','Deload']]),
+fatigue:{rx:'2×15',note:''}},
+{n:'Élévations Latérales + Triceps (SS haltères)',tag:'accessory',parts:['Élévations latérales DB','Extension triceps'],yt:Y('lateral raise triceps extension'),tempo:'2-0-3-0',rest:'75 sec',sets:3,
+howto:'<strong>SUPERSET haltères/poulie côte à côte (zéro déplacement).</strong><br><strong>Élévations — DOSE 1/2 de la semaine.</strong> LE constructeur de largeur d\'épaule. Monter 2s à l\'horizontale, descente LENTE 3s. Léger, reps hautes, proche de l\'échec.<br><strong>Triceps :</strong> extension overhead (chef long étiré) ou corde.<br><strong>Dès V2 :</strong> dropset sur la dernière série de chaque.',cue:'ZÉRO balancier sur les élévations. Si tu balances, c\'est trop lourd.',
+weeks:Wk([[1,'3×(12-15 + 12-15)','Léger'],[2,'3×(12-15+12-15) +ch',''],[3,'3×(12-15+12-15) +ch',''],[4,'3×(12-15+12-15)','RIR 1'],[5,'3×(12-15+12-15) +dropset',''],[6,'3×(12-15+12-15) +dropset',''],[7,'3×(12-15+12-15) +dropset','RIR 0'],[8,'2×(15+15) léger','Deload'],[9,'3×(12-15+12-15) +ch',''],[10,'3×(12-15+12-15) +dropset',''],[11,'3×(12-15+12-15) max','PIC'],[12,'2×(15+15) léger','Deload']]),
+fatigue:{rx:'2×(15+15)',note:''}}]},
+
+{day:3,nm:'C — JAMBES POSTÉRIEUR + WOD',wu:'POST',type:'gym',dur:['~75','~75','~78','~80','~80','~82','~82','~58','~82','~82','~85','~58'],ex:[
+{n:'RDL Barre',tag:'pillar',yt:Y('romanian deadlift'),tempo:'voir méthode',rest:'2m30-3m',sets:4,
+howto:'<strong>Moteur chaîne postérieure (ischios + fessiers + érecteurs). Référence : 130kg×5.</strong><br>Hanches ARRIÈRE, barre contre les cuisses, dos NEUTRE. Étirement ischio recherché en bas.<br><br><strong>V1 — TEMPO :</strong> descente 4s, pause 1s.<br><strong>V2 — TENSION CONTINUE :</strong> jamais d\'arrêt en haut, la tension ne retombe pas de toute la série.<br><strong>V3 — LOURD + pause :</strong> charges plus élevées, 1s en bas.<br><em>Pourquoi RDL et pas deadlift complet : même stimulus ischio/fessier, bien moins de coût lombaire — ton dos de cordiste encaisse déjà beaucoup. Alternative : trap bar.</em>',cue:'Dos neutre TOUJOURS. Si les lombaires lâchent avant les ischios, réduis.',
+weeks:Wk([[1,'3×8 @85-90kg · tempo 4.1.2.0','RIR 4 — FACILE'],[2,'3×8 @95 · tempo','RIR 3-4'],[3,'4×8 @105 · tempo','RIR 3'],[4,'4×6-8 @112.5 · tempo','Vraie charge'],[5,'4×8 @105 · tension continue','V2'],[6,'4×8 @110 · tension continue',''],[7,'4×6-8 @115 · tension continue','RIR 1'],[8,'2×6 -40%','DELOAD'],[9,'4×6 @120 · pause 1s bas','V3'],[10,'4×6 @125 · pause',''],[11,'4×5 @130+ max','PIC'],[12,'2×6 -40%','DELOAD']]),
+fatigue:{rx:'3×8 -20%',note:''}},
+{n:'Bulgarian Split Squat',tag:'pillar',parts:['Jambe FAIBLE (en 1er)','Jambe forte'],yt:Y('bulgarian split squat'),tempo:'3-1-2-0',rest:'2 min',sets:4,
+howto:'<strong>Pièce maîtresse de la correction d\'asymétrie jambes + gros constructeur de masse.</strong> Placé tôt, quand tu es encore frais.<br>Pied arrière sur banc/rouleau, descente 3s, pause 1s. Buste penché = plus fessier ; droit = plus quad.<br><strong>RÈGLE :</strong> jambe FAIBLE d\'abord, la forte ne dépasse pas ses reps.<br><em>V3 : possible en front rack ou avec barre pour varier.</em>',cue:'Genou avant stable. L\'écart G/D doit se réduire sur le bloc.',
+weeks:Wk([[1,'3×10-12/j PDC ou léger','Réappropriation'],[2,'3×10-12/j +charge',''],[3,'3×8-12/j +charge','RIR 3'],[4,'4×8-12/j','Vraie charge'],[5,'4×8-12/j +ch','RIR 2'],[6,'4×8-12/j +ch',''],[7,'4×8-10/j +ch','RIR 1'],[8,'2×10/j léger','DELOAD'],[9,'4×8-12/j barre ou front rack','V3 variante'],[10,'4×8-10/j +ch',''],[11,'4×8-10/j max','PIC'],[12,'2×10/j léger','DELOAD']]),
+fatigue:{rx:'2×10/j PDC',note:''}},
+{n:'Hip Thrust',tag:'legs',yt:Y('hip thrust'),tempo:'2-2-2-0',rest:'90 sec',sets:3,
+howto:'<strong>Fessiers — moteur d\'extension de hanche.</strong> Barre ou machine. Hanches en haut, PAUSE 2s, serrer fort. Menton rentré, côtes basses.<br>Le fessier, c\'est l\'esthétique de profil ET le moteur de ta course et de tes sauts.<br><em>V3 : version unilatérale possible pour plus d\'anti-asymétrie.</em>',cue:'Pause de 2s en haut obligatoire — c\'est là que le fessier travaille.',
+weeks:Wk([[1,'3×12 léger','Calibrer'],[2,'3×10-12 +ch',''],[3,'3×10-12 +ch','RIR 3'],[4,'3×8-12','Vraie charge'],[5,'3×8-12 +ch','RIR 2'],[6,'3×8-12 +ch',''],[7,'3×8-10 +ch','RIR 1'],[8,'2×12 léger','Deload'],[9,'3×8-12 +ch',''],[10,'3×8-10 +ch',''],[11,'3×8-10 max','PIC'],[12,'2×12 léger','Deload']]),
+fatigue:{rx:'3×12 léger',note:''}},
+{n:'Leg Curl UNILATÉRAL',tag:'legs',parts:['Jambe FAIBLE (en 1er)','Jambe forte'],yt:Y('single leg curl'),tempo:'2-1-3-0',rest:'75 sec',sets:3,
+howto:'<strong>Ischios en flexion de genou (que le RDL ne couvre pas) + correction asymétrie.</strong> Leg curl debout, assis ou allongé, une jambe à la fois. Descente 3s, étirement complet.<br><strong>Jambe faible d\'abord.</strong> Le seated curl (genou plié, hanche fléchie) donne le meilleur étirement.<br><strong>Dès V2 :</strong> dropset possible.',cue:'Hanches collées au banc, pas de décollage.',
+weeks:Wk([[1,'3×12/jambe','Calibrer'],[2,'3×12/j +ch',''],[3,'3×10-12/j +ch',''],[4,'3×10-12/j','RIR 2'],[5,'3×10-12/j +ch',''],[6,'3×8-12/j +ch +dropset',''],[7,'3×8-12/j +ch','RIR 1'],[8,'2×12/j léger','Deload'],[9,'3×10-12/j +ch',''],[10,'3×8-12/j +ch +dropset',''],[11,'3×8-12/j max','PIC'],[12,'2×12/j léger','Deload']]),
+fatigue:{rx:'2×12/j',note:''}},
+{n:'Mollets Assis',tag:'legs',yt:Y('seated calf raise'),tempo:'2-2-3-0',rest:'60 sec',sets:4,
+howto:'<strong>Dose 2/3 de la semaine.</strong> ASSIS = soléaire (genou plié, portion différente du debout). Complète la séance A. Amplitude complète, étirement 2-3s en bas.<br>Le soléaire répond aux reps hautes et au temps sous tension.<br><em>Alternative : machine assise, ou haltères sur les genoux.</em>',cue:'Étirement profond en bas. Pas de rebond.',
+weeks:Wk([[1,'4×15-20','Calibrer'],[2,'4×15-20 +ch',''],[3,'4×15-20 +ch',''],[4,'4×12-20','RIR 1'],[5,'4×12-20 +ch +myo-reps',''],[6,'4×12-20 +ch +myo',''],[7,'4×12-20 +ch +myo','RIR 0'],[8,'2×15 léger','Deload'],[9,'4×12-20 +ch',''],[10,'4×12-20 +ch +myo',''],[11,'4×12-20 max +myo','PIC'],[12,'2×15 léger','Deload']]),
+fatigue:{rx:'3×15',note:''}},
+{n:'FINISHER WOD (8-12 min)',tag:'wod',yt:Y('hyrox metcon wod'),tempo:'',rest:'',sets:0,
+howto:'<strong>1×/semaine. Entretient ta capacité de travail pour la prépa HYROX de janvier, sans manger la récup du bloc.</strong><br>Trois profils qui tournent : <strong>ergo + chargé</strong> (ski/bike/rameur + thrusters/devil press), <strong>HYROX-like</strong> (sled, wall balls, rameur), <strong>PDC/format court</strong> (burpees, pompes, air squats, échelles, pénalités).<br>Le sled et les wall balls sont deux stations HYROX — les toucher régulièrement évite de repartir de zéro en janvier.<br><strong>PREMIÈRE chose à couper si tu es cuit ou pressé.</strong>',cue:'8-12min max. C\'est un finisher, pas une séance de CrossFit. Note ton score.',
+weeks:Wk([[1,'SKIP (reprise)','Pas cette semaine'],[2,'AMRAP 8min: 10 Air Squats + 10 Push-ups + 10 Sit-ups','PDC — reprise douce'],[3,'EMOM 10min: min1 12cal Ski / min2 10 Burpees','Ergo + PDC'],[4,'AMRAP 10min: 8 DB Thrusters + 8 Burpees + 10cal Bike','Chargé'],[5,'For Time 21-15-9: Wall Balls + cal Row','HYROX-like'],[6,'EMOM 12min: min1 10 Devil Press / min2 12cal Bike / min3 15 Air Squats','Mixte'],[7,'For Time 5 rds: Sled Push 15m + 10 Wall Balls + 10cal Ski','HYROX — sled'],[8,'SKIP','Deload'],[9,'AMRAP 10min: 5 Pull-ups + 10 Push-ups + 15 Air Squats','Cindy PDC'],[10,'For Time 10→1: DB Snatch alt + Burpees · 10cal Row toutes les 2 séries','Échelle descendante'],[11,'For Time: 100 Wall Balls · pénalité 5 Burpees toutes les 90s','HYROX + pénalité'],[12,'SKIP','Deload']]),
+fatigue:{rx:'SKIP',note:''}}]},
+
+{day:4,nm:'D — HAUT 2 · VOLUME',wu:'PULL',type:'gymshort',dur:['~68','~68','~70','~70','~70','~70','~70','~52','~70','~70','~70','~52'],ex:[
+{n:'Développé Militaire Barre (debout)',tag:'pillar',yt:Y('standing overhead press barbell'),tempo:'voir méthode',rest:'2m30',sets:4,
+howto:'<strong>Force overhead + transfert HYROX direct (thruster, push press, sandbag over shoulder).</strong> Debout, gainage SERRÉ (fessiers + abdos), presser à la verticale, tête passe sous la barre en haut.<br><br><strong>V1 — TENSION CONTINUE :</strong> pas d\'arrêt en haut, tension maintenue.<br><strong>V2 — STATO :</strong> 2s d\'arrêt à hauteur du regard, puis finir en VITESSE.<br><strong>V3 — PAUSE + lourd :</strong> 2s d\'arrêt en fin de chaque rep, charges plus élevées.<br><em>Reprise : commence léger, ce mouvement rappelle vite les épaules et le bas du dos après une pause.</em><br><em>Alternative : militaire assis haltères ou machine.</em>',cue:'Pas d\'hyperextension lombaire : côtes basses, fessiers serrés.',
+weeks:Wk([[1,'3×8-10 @~35-40kg · tension continue','RIR 4 — CALIBRER'],[2,'3×8-10 +ch','RIR 3-4'],[3,'4×8 +ch','RIR 3'],[4,'4×6-8','Vraie charge'],[5,'4×6-8 · STATO 2s au regard + vitesse','V2'],[6,'4×6-8 · STATO +2.5kg',''],[7,'4×5-6 · STATO +2.5kg','RIR 1'],[8,'2×8 -40%','DELOAD'],[9,'4×6 · pause 2s fin de rep','V3'],[10,'4×5-6 +2.5kg · pause',''],[11,'4×4-5 max','PIC'],[12,'2×8 -40%','DELOAD']]),
+fatigue:{rx:'3×8 -20%',note:''}},
+{n:'Presse Pec ISO-LATÉRALE',tag:'accessory',parts:['Bras FAIBLE (en 1er)','Bras fort'],yt:Y('iso lateral chest press'),tempo:'3-0-2-0',rest:'90 sec',sets:4,
+howto:'<strong>2e dose pec de la semaine (fréquence 2×) + correction asymétrie poussée.</strong> Hammer Wide Chest iso-latérale ou MTS Chest Press — UN BRAS à la fois. Convergence + iso-latéral = contraction complète et symétrie.<br><strong>Bras faible d\'abord.</strong> Machine = tu peux aller près de l\'échec sans risque.<br><em>Alternative : développé haltère un bras, machine chest press unilatérale.</em>',cue:'Amplitude complète. Log G/D, l\'écart doit se réduire.',
+weeks:Wk([[1,'3×12/bras léger','Calibrer + noter écart'],[2,'3×10-12/bras +ch',''],[3,'4×10-12/bras +ch',''],[4,'4×8-12/bras','RIR 2'],[5,'4×8-12/bras +ch',''],[6,'4×8-12/bras +ch +dropset',''],[7,'4×8-10/bras +ch','RIR 1'],[8,'2×12/bras léger','Deload'],[9,'4×8-12/bras +ch',''],[10,'4×8-10/bras +ch +dropset',''],[11,'4×8-10/bras max','PIC'],[12,'2×12/bras léger','Deload']]),
+fatigue:{rx:'2×12/bras',note:''}},
+{n:'Tirage Vertical ISO-LATÉRAL',tag:'accessory',parts:['Bras FAIBLE (en 1er)','Bras fort'],yt:Y('iso lateral pulldown'),tempo:'2-1-3-0',rest:'90 sec',sets:4,
+howto:'<strong>2e angle de largeur dorsale (complète les tractions) + symétrie.</strong> Tirage vertical convergent ou Hammer MTS, un bras à la fois. Étirement complet en haut, tirer jusqu\'à contraction, descente 3s.<br><strong>Bras faible d\'abord.</strong><br><em>Alternative : lat pulldown une main à la poulie.</em>',cue:'Étirement max en haut — c\'est là que le lat travaille le plus.',
+weeks:Wk([[1,'3×12/bras léger','Calibrer'],[2,'3×10-12/bras +ch',''],[3,'4×10-12/bras +ch',''],[4,'4×8-12/bras','RIR 2'],[5,'4×8-12/bras +ch',''],[6,'4×8-12/bras +ch',''],[7,'4×8-10/bras +ch','RIR 1'],[8,'2×12/bras léger','Deload'],[9,'4×8-12/bras +ch',''],[10,'4×8-10/bras +ch +dropset',''],[11,'4×8-10/bras max','PIC'],[12,'2×12/bras léger','Deload']]),
+fatigue:{rx:'2×12/bras',note:''}},
+{n:'Élévations Latérales + Reverse Fly (SS)',tag:'accessory',parts:['Élévations latérales','Reverse fly / Face pull'],yt:Y('lateral raise reverse fly'),tempo:'2-0-3-0',rest:'60 sec',sets:4,
+howto:'<strong>SUPERSET — DOSE 2/2 d\'élévations de la semaine.</strong> C\'est cette 2e dose qui fait la largeur (10-11 séries de delt latéral/semaine au total).<br><strong>Élévations :</strong> descente LENTE 3s, léger, proche de l\'échec. Varie l\'outil (haltères, poulie, machine à pads) selon la vague.<br><strong>Reverse fly / face pull :</strong> deltoïde POSTÉRIEUR — épaule 3D de profil + santé de l\'épaule (équilibre tes poussées).<br><strong>Dès V2 :</strong> dropset.',cue:'Deux petits muscles : léger, contrôlé, reps hautes.',
+weeks:Wk([[1,'4×(12-15 + 15)','Léger'],[2,'4×(12-15+15) +ch',''],[3,'4×(12-15+15) +ch',''],[4,'4×(12-15+12-15)','RIR 1'],[5,'4×(12-15+12-15) +dropset','Machine à pads'],[6,'4×(12-15+12-15) +dropset',''],[7,'4×(12-15+12-15) +dropset','RIR 0'],[8,'2×(15+15) léger','Deload'],[9,'4×(12-15+12-15) +ch','Poulie'],[10,'4×(12-15+12-15) +dropset',''],[11,'4×(12-15+12-15) max','PIC'],[12,'2×(15+15) léger','Deload']]),
+fatigue:{rx:'3×(15+15)',note:''}},
+{n:'Curl + Avant-bras (SS haltères)',tag:'grip',parts:['Curl (incliné/EZ/preacher)','Curl marteau ou inversé'],yt:Y('biceps curl hammer curl forearm'),tempo:'3-0-2-1',rest:'75 sec',sets:4,
+howto:'<strong>SUPERSET bras + avant-bras (haltères côte à côte).</strong><br><strong>Curl :</strong> incliné (chef long étiré), barre EZ ou preacher. Tempo 3s en descente. Varie l\'angle par vague.<br><strong>Curl marteau ou inversé :</strong> brachio-radial = l\'avant-bras qui se voit + le brachial qui pousse le biceps vers le haut.<br>Le grip est déjà travaillé par les tractions et le RDL sans sangles.<br><strong>Dès V2 :</strong> myo-reps ou dropset.',cue:'Coudes fixes. Congestion max en fin de séance.',
+weeks:Wk([[1,'4×(12-15 + 12-15)','Léger — calibrer'],[2,'4×(12-15+12-15) +ch',''],[3,'4×(12-15+12-15) +ch',''],[4,'4×(10-15+10-15)','RIR 1'],[5,'4×(10-15+10-15) +myo-reps','Preacher'],[6,'4×(10-15+10-15) +myo',''],[7,'4×(10-15+10-15) +myo','RIR 0'],[8,'2×(15+15) léger','Deload'],[9,'4×(10-15+10-15) +ch','Curl incliné'],[10,'4×(10-15+10-15) +dropset',''],[11,'4×(10-15+10-15) max','PIC'],[12,'2×(15+15) léger','Deload']]),
+fatigue:{rx:'3×(15+15)',note:''}},
+{n:'Mollets (3e dose)',tag:'legs',yt:Y('calf raise'),tempo:'2-2-3-0',rest:'60 sec',sets:3,
+howto:'<strong>Dose 3/3 de la semaine — priorité assumée du bloc (10-12 séries/semaine).</strong> Debout, à la presse ou au Smith, selon ce qui est libre. Amplitude complète, étirement tenu 2-3s.<br>Séance haut du corps = les mollets sont frais, tu peux charger.',cue:'Même en fin de séance : les mollets sont ta priorité.',
+weeks:Wk([[1,'3×15-20','Calibrer'],[2,'3×15-20 +ch',''],[3,'3×15-20 +ch',''],[4,'3×12-20','RIR 1'],[5,'3×12-20 +ch',''],[6,'3×12-20 +ch +myo',''],[7,'3×12-20 +ch','RIR 0'],[8,'2×15 léger','Deload'],[9,'3×12-20 +ch',''],[10,'3×12-20 +ch +myo',''],[11,'3×12-20 max','PIC'],[12,'2×15 léger','Deload']]),
+fatigue:{rx:'2×15',note:''}}]},
+
+{day:5,nm:'COURSE — 2× / SEMAINE (fixe)',wu:'RUN',type:'run',dur:['2 sorties','2 sorties','2 sorties','2 sorties','2 sorties','2 sorties','2 sorties','2 légères','2 sorties','2 sorties','2 sorties','2 légères'],ex:[
+{n:'Sortie 1 — Z2 facile',tag:'cardio',yt:Y('zone 2 running'),tempo:'',rest:'',sets:0,
+howto:'<strong>Base aérobie. Coût de récup quasi nul — n\'interfère pas avec l\'hypertrophie.</strong><br>30-50min, FC 137-151 (ta Z2), tu parles en phrases complètes. C\'est 80% de ta future perf HYROX.<br><strong>Si tu dois sauter une des deux sorties, garde CELLE-CI.</strong><br>Travaille la cadence (170-172, tu es à 167).<br><em>C\'est aussi ton plan B en déplacement : course + PDC si pas de salle.</em>',cue:'Vraiment facile. Si tu es essoufflé, ralentis.',
+weeks:Wk([[1,'Z2 30-40min','Reprise douce'],[2,'Z2 40min',''],[3,'Z2 40-50min',''],[4,'Z2 40-50min',''],[5,'Z2 40-50min',''],[6,'Z2 40-50min',''],[7,'Z2 40-50min',''],[8,'Z2 30min','Deload'],[9,'Z2 40-50min',''],[10,'Z2 40-50min',''],[11,'Z2 40min','Pic muscu = allège'],[12,'Z2 30-40min','Deload']]),
+fatigue:{rx:'Z2 30min ou marche',note:''}},
+{n:'Sortie 2 — Allure vive',tag:'cardio',yt:Y('tempo run intervals'),tempo:'',rest:'',sets:0,
+howto:'<strong>Entretien du seuil et de la vitesse pour janvier.</strong><br>Tempo (2×8-12min @4:20-4:30, récup 3min) OU intervalles (400-800m, r1\'30-2min).<br><strong>RÈGLE :</strong> jamais le lendemain d\'une séance jambes lourde (A ou C). Les jambes doivent être fraîches.<br>Échauffement : 10-12min jogging + lignes droites.',cue:'Si les jambes sont lourdes, convertis en Z2. Pas de héroïsme.',
+weeks:Wk([[1,'Z2 30min (pas encore de vive)','Reprise'],[2,'Tempo 2×8min @4:30','Réintro douce'],[3,'Tempo 2×10min @4:25',''],[4,'5×400m @4:00 · r1\'30',''],[5,'Tempo 2×10min @4:20',''],[6,'6×400m @3:55 · r1\'30',''],[7,'Tempo 2×12min @4:20',''],[8,'Z2 facile','Deload'],[9,'5×600m @4:05 · r2min',''],[10,'Tempo 20min continu @4:20',''],[11,'6×400m @3:55','Ou allège si pic muscu'],[12,'Z2 facile','Deload']]),
+fatigue:{rx:'Convertir en Z2',note:''}}]}
+];
+
+var GOALS=[
+{cat:'PRIORITÉS DU BLOC',it:[{t:'Jambes',c:'Fortes ET volumineuses',s:'Quad 11-12 · Post 10-11 séries'},{t:'Épaules',c:'Largeur — effet V',s:'Delt latéral 10-11 séries'},{t:'Mollets',c:'10-12 séries/sem · 3×',s:'Point faible génétique'},{t:'Asymétries',c:'Réduire écart G/D',s:'6 exos unilatéraux loggés'}]},
+{cat:'FORCE — REPÈRES DE DÉPART',it:[{t:'Squat 1RM',c:'150 kg',s:'S1 repart à ~95kg (63%)'},{t:'RDL',c:'130 kg×5'},{t:'Développé couché',c:'97.5 kg×5'},{t:'Tractions lestées',c:'+35 kg×4',s:'Cible S11 : >+37.5'},{t:'Militaire barre',c:'À calibrer en S1'}]},
+{cat:'LES 3 VAGUES (méthodes)',it:[{t:'V1 · S1-S4',c:'TEMPO + tension continue',s:'S1-S3 = reprise, ne charge pas'},{t:'V2 · S5-S8',c:'CONTRASTE + stato',s:'Lourd + explosif enchaînés'},{t:'V3 · S9-S12',c:'STATO + intensité',s:'Pauses, charges max'},{t:'Deload',c:'S8 et S12'}]},
+{cat:'VOLUME HEBDO (4 séances)',it:[{t:'Dos',c:'12 séries'},{t:'Quadriceps',c:'11-12'},{t:'Pectoraux',c:'11'},{t:'Fessiers/Ischios',c:'10-11'},{t:'Delt latéral',c:'10-11'},{t:'Mollets',c:'10-12'},{t:'Bras directs',c:'7 (+ indirect lourd)'},{t:'Abdos',c:'5-6'}]},
+{cat:'MAINTENUS',it:[{t:'Explosivité',c:'Broad Jump ≥2.90m',s:'Tests S3 et S11'},{t:'Conditioning',c:'1 WOD/sem'},{t:'Course',c:'2 sorties fixes'},{t:'Stations HYROX',c:'Sled + wall balls dans les WOD'}]},
+{cat:'NUTRITION',it:[{t:'Surplus',c:'+200-300 kcal/j'},{t:'Protéines',c:'~2 g/kg'},{t:'Prise de poids',c:'1-1.5 kg / 3 mois',s:'Plus vite = du gras'}]},
+{cat:'APRÈS LE BLOC',it:[{t:'Décembre',c:'Bilan + bloc force court'},{t:'Janvier → avril',c:'Prépa HYROX spécifique'},{t:'12 avril 2027',c:'HYROX Paris',s:'Objectif 1h10-1h15'}]}
+];
+
+
+
+
+function render(){var a=document.getElementById('app'),bk=document.getElementById('bkB'),tt=document.getElementById('tT'),ph=document.getElementById('phB');bk.classList.toggle('hd',S.p==='intro');ph.classList.toggle('hd',S.p==='intro'||S.p==='goals');
+if(S.p==='intro'){tt.textContent='FORGE';a.innerHTML=rI()}
+else if(S.p==='goals'){tt.textContent='OBJECTIFS';a.innerHTML=rG()}
+else if(S.p==='weeks'){tt.textContent='SEMAINES';a.innerHTML=rWk()}
+else if(S.p==='days'){tt.textContent='SEMAINE '+S.w;ph.textContent=PH[S.w];a.innerHTML=rDs()}
+else if(S.p==='day'){tt.textContent='S'+S.w+' · '+DN[S.d];ph.textContent=PH[S.w];a.innerHTML=rD()}}
+
+function rI(){return '<div class="fi"><div class="ih"><h1>FORGE</h1><div class="su">12 semaines \u00b7 hypertrophie + force</div><div class="tg">SEPT \u2192 D\u00c9C \u00b7 ON CONSTRUIT</div></div>'+
+'<div class="is"><h3>\u25c6 OBJECTIF</h3><p>Construire la mati\u00e8re premi\u00e8re : <b>muscle + force</b>. <b>Jambes fortes et volumineuses</b>, <b>grosses \u00e9paules</b>, mollets prioritaires, correction des <b>asym\u00e9tries</b> (jambes + dos). Explosivit\u00e9, conditioning et course maintenus. En l\u00e9ger surplus.</p></div>'+
+'<div class="is"><h3>\u25c6 FORMAT</h3><p><b>4 s\u00e9ances A/B/C/D</b>, ordre libre, pas de jours fixes. Une seule r\u00e8gle : jamais A et C cons\u00e9cutives.</p><ul><li><b>A</b> \u2014 Jambes quad ~1h15</li><li><b>B</b> \u2014 Haut 1 lourd <b>~1h10</b> (inclin\u00e9, tractions lest\u00e9es, row uni)</li><li><b>C</b> \u2014 Jambes post\u00e9rieur ~1h15 + WOD</li><li><b>D</b> \u2014 Haut 2 volume <b>~1h10</b> (militaire, machines iso-lat\u00e9rales)</li><li><b>COURSE</b> \u2014 2 sorties fixes (1 Z2 + 1 vive)</li></ul><p style="margin-top:8px">Pec, dos et \u00e9paules touch\u00e9s <b>2\u00d7/semaine</b>. B et D \u2192 lundi matin ou d\u00e9placement.</p></div>'+
+'<div class="is"><h3>\u25c6 3 VAGUES DE M\u00c9THODES</h3><p>Les <b>exercices moteurs ne changent pas</b> (c\'est eux qui portent ta progression). C\'est la <b>M\u00c9THODE</b> qui tourne toutes les 4 semaines \u2014 anti-lassitude + capacit\u00e9s vari\u00e9es.</p><ul><li><b>V1 (S1-S4)</b> \u2014 TEMPO + tension continue</li><li><b>V2 (S5-S8)</b> \u2014 CONTRASTE (lourd + explosif) + stato</li><li><b>V3 (S9-S12)</b> \u2014 STATO (pauses) + intensit\u00e9 max</li></ul><p style="margin-top:8px">Les <b>machines et accessoires</b> changent aussi par vague. Deload en S8 et S12.</p></div>'+
+'<div class="is"><h3>\u25c6 LES 3 PREMI\u00c8RES SEMAINES</h3><p><span class="kp">NE CHARGE PAS.</span> Tu sors d\'un mois off : le muscle se souvient, mais tendons, dos et syst\u00e8me nerveux non. Squat \u00e0 ~95kg en S1 (63%), RIR 3-4. \u00c7a doit sembler facile \u2014 c\'est voulu. La vraie charge commence en S4.</p></div>'+
+'<div class="is"><h3>\u25c6 BARRE vs MACHINE</h3><p><b>Barres</b> (squat, RDL, inclin\u00e9, militaire, tractions) = les moteurs de force, faits FRAIS, avec les m\u00e9thodes par vague.<br><b>Machines</b> (presses, iso-lat\u00e9rales, curls, mollets) = le volume d\'hypertrophie, o\u00f9 tu vas <b>vraiment pr\u00e8s de l\'\u00e9chec</b> sans risque, avec dropsets et myo-reps.</p></div>'+
+'<div class="is"><h3>\u25c6 ASYM\u00c9TRIES \u2014 LA R\u00c8GLE</h3><p>Sur chaque exo unilat\u00e9ral : <b>c\u00f4t\u00e9 FAIBLE en premier</b>, et le c\u00f4t\u00e9 fort ne fait QUE le nombre de reps que le faible a r\u00e9ussi. C\'est la seule fa\u00e7on de rattraper l\'\u00e9cart. Les deux c\u00f4t\u00e9s se loguent s\u00e9par\u00e9ment.</p></div>'+
+'<div class="is"><h3>\u25c6 APR\u00c8S</h3><p>D\u00e9cembre : bilan + bloc force court. <b>Janvier \u2192 avril : pr\u00e9pa HYROX</b>. <b>12 avril 2027 : HYROX Paris</b>, objectif 1h10-1h15. Le muscle et la force construits ici seront ton avantage sur les stations.</p></div>'+
+'<button class="sb" onclick="nav(\'weeks\')">PROGRAMME \u2192</button>'+
+'<button class="sb alt" onclick="nav(\'goals\')">OBJECTIFS & VOLUME \u2192</button></div>'}
+
+function rG(){var h='<div class="fi">';GOALS.forEach(function(g){h+='<div class="stt">'+g.cat+'</div><table class="otb"><tr><th>CIBLE</th><th>VALEUR</th></tr>';g.it.forEach(function(i){h+='<tr><td>'+i.t+'</td><td><b>'+i.c+'</b>'+(i.s?'<br><span style="color:var(--w);font-size:10px">'+i.s+'</span>':'')+'</td></tr>'});h+='</table>'});h+='<button class="sb" style="margin-top:16px" onclick="nav(\'weeks\')">PROGRAMME →</button></div>';return h}
+
+function rWk(){var h='<div class="fi"><div class="stt">12 SEMAINES · 3 VAGUES</div><div class="wg">';for(var w=1;w<=12;w++){var cl=(w===8||w===12)?'tp':(w===7||w===11)?'pk':'';h+='<div class="wc '+cl+'" onclick="nav(\'days\',{w:'+w+'})"><div class="wn">S'+w+'</div><div class="wl">'+PH[w]+'</div></div>'}return h+'</div></div>'}
+
+function rDs(){var h='<div class="fi">';if(BF[S.w])h+='<div class="br"><h3>◆ BRIEFING S'+S.w+'</h3><p>'+BF[S.w]+'</p></div>';h+='<div class="stt">4 SÉANCES · ORDRE LIBRE</div><div class="dg">';for(var d=1;d<=5;d++){var D=DAYS.find(function(x){return x.day===d}),dn=gDn(S.w,d),du=D?D.dur[S.w-1]:'';var cls=D.type==='run'?'run':D.type==='gymshort'?'legday':'';h+='<div class="dc '+cls+'" onclick="nav(\'day\',{w:'+S.w+',d:'+d+'})"><div class="dn">'+DN[d]+'</div><div class="dd">'+du+(D.type==='run'?'':'min')+'</div>'+(dn?'<div class="dk">✓</div>':'')+'</div>'}return h+'</div><div class="is" style="margin-top:12px"><h3>◆ RÈGLES</h3><p><b>Ordre libre</b> — tu fais la séance qui colle au créneau. Une seule contrainte : <b>jamais A et C sur deux jours consécutifs</b> (les deux séances jambes).<br><br><b>B et D font ~1h10</b> → lundi matin ou salle en déplacement.<br><b>A et C font ~1h15</b> (squat/RDL exigent leurs repos longs).<br><br>Si le temps manque : <b>coupe par la FIN</b>, jamais par le début. Chaque exo a une <b>alternative</b> si la station est prise.</p></div></div>'}
+
+function rD(){var D=DAYS.find(function(x){return x.day===S.d});if(!D)return'';var w=S.w,h='<div class="fi">';
+if(BF[w]&&(S.d===1))h+='<div class="br"><h3>◆ BRIEFING S'+w+'</h3><p>'+BF[w]+'</p></div>';
+if(D.wu&&WU[D.wu]){var Wu=WU[D.wu];h+='<div class="wu"><div class="wuh" onclick="tWu()"><span>'+Wu.nm+'</span><span class="wut">'+Wu.dur+'</span></div><div class="wub'+(S.oWu?' op':'')+'" id="wuBody">';Wu.ex.forEach(function(e){h+='<div class="we"><div class="wei"><div class="wen">'+e.n+'</div><div class="wed">'+e.d+'</div></div><div class="wev">'+e.v+'</div></div>'});h+='</div></div>'}
+D.ex.forEach(function(ex,ei){var wk=ex.weeks[w];if(!wk||wk.rx==='—')return;
+var tl=ex.tag==='pillar'?'PILIER':ex.tag==='explosive'?'EXPLO':ex.tag==='core'?'CORE/ABS':ex.tag==='grip'?'GRIP':ex.tag==='cardio'?'RUN':ex.tag==='wod'?'WOD':ex.tag==='legs'?'JAMBES':'';
+var id='e'+ei,op=S.oEx===id;
+h+='<div class="ec"><div class="eh '+ex.tag+'" onclick="tEx(\''+id+'\')"><span class="en">'+ex.n+'</span>';
+if(ex.rest)h+='<span class="et">'+ex.rest+'</span>';
+h+='<span class="et'+(ex.tag==='pillar'?' pl':'')+'">'+tl+'</span>';
+if(ex.yt)h+='<a href="'+ex.yt+'" target="_blank" class="ey" onclick="event.stopPropagation()">▶</a>';
+h+='</div><div class="eb'+(op?' op':'')+'" id="'+id+'">';
+h+='<div class="em">';if(ex.tempo)h+='<span class="tp2">TEMPO '+ex.tempo+'</span>';if(ex.rest)h+='<span>REPOS '+ex.rest+'</span>';h+='</div>';
+if(ex.howto)h+='<div class="ht">'+ex.howto+'</div>';
+if(ex.cue)h+='<div class="cu">'+ex.cue+'</div>';
+h+='<div class="rx2"><div class="lb">S'+w+' · '+PH[w]+'</div><div class="rv">'+wk.rx+'</div>'+(wk.note?'<div class="nt">'+wk.note+'</div>':'')+'</div>';
+if(wk.sg)h+='<div class="sg2">⚠ '+wk.sg+'</div>';
+if(w>1&&ex.sets>0&&!ex.parts){var pc=gL(w-1,S.d,ei,0,'kg');if(pc)h+='<div class="pd"><strong>S'+(w-1)+' set 1 :</strong> '+pc+'kg</div>'}
+if(ex.sets>0){var ns=parseInt((wk.rx.match(/(\d+)×/)||[])[1])||ex.sets;
+ if(ex.parts){
+  ex.parts.forEach(function(pn,pi){
+   var ppc=w>1?gL(w-1,S.d,ei,0,'kg'+pi):'';
+   h+='<div class="sl"><div class="sl-t">▸ '+pn+'</div>';
+   if(ppc)h+='<div class="pd" style="margin:0 0 6px"><strong>S'+(w-1)+' set 1 :</strong> '+ppc+'kg</div>';
+   for(var si=0;si<ns;si++){var ck=gL(w,S.d,ei,si,'kg'+pi),cr=gL(w,S.d,ei,si,'rp'+pi);h+='<div class="sr"><div class="sn2">'+(si+1)+'</div><div class="si"><input type="number" step="0.5" placeholder="kg" value="'+ck+'" onchange="sL('+w+','+S.d+','+ei+','+si+',\'kg'+pi+'\',this.value)"><span class="u">kg</span></div><div class="si"><input type="number" placeholder="reps" value="'+cr+'" onchange="sL('+w+','+S.d+','+ei+','+si+',\'rp'+pi+'\',this.value)"><span class="u">rep</span></div></div>'}
+   h+='</div>'});
+ }else{
+  h+='<div class="sl"><div class="sl-t">LOG PAR SÉRIE</div>';for(var si=0;si<ns;si++){var ck=gL(w,S.d,ei,si,'kg'),cr=gL(w,S.d,ei,si,'rp');h+='<div class="sr"><div class="sn2">'+(si+1)+'</div><div class="si"><input type="number" step="0.5" placeholder="kg" value="'+ck+'" onchange="sL('+w+','+S.d+','+ei+','+si+',\'kg\',this.value)"><span class="u">kg</span></div><div class="si"><input type="number" placeholder="reps" value="'+cr+'" onchange="sL('+w+','+S.d+','+ei+','+si+',\'rp\',this.value)"><span class="u">rep</span></div></div>'}h+='</div>';
+ }
+}
+var cn=gN(w,S.d,ei);h+='<textarea class="ln" placeholder="Notes (score WOD, ressenti, allures, mesures sauts...)" onchange="sN('+w+','+S.d+','+ei+',this.value)">'+cn+'</textarea>';
+h+='</div></div>'});
+h+='<button class="cb" onclick="sDn('+w+','+S.d+');alert(\'S'+w+' '+DN[S.d]+' ✓\');nav(\'days\',{w:'+w+'})">✓ SÉANCE TERMINÉE</button>';
+h+='<button class="cb exp" onclick="exportSession('+w+','+S.d+')">↗ EXPORTER POUR ANALYSE</button>';
+return h+'</div>'}
+
+function exportSession(w,d){var D=DAYS.find(function(x){return x.day===d});if(!D)return;var dt=new Date();var dateStr=dt.toLocaleDateString('fr-FR',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+var r='━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n◆ RAPPORT — FORGE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n'+dateStr+'\nSemaine '+w+'/12 · '+DN[d]+' · '+D.nm+'\nPhase : '+PH[w]+'\n\n──── EXERCICES ────\n\n';
+var totalS=0,doneS=0;
+D.ex.forEach(function(ex,ei){var wk=ex.weeks[w];if(!wk||wk.rx==='—')return;
+r+='▸ '+ex.n+(ex.tag==='pillar'?' ⭐':'')+'\n';
+if(ex.tempo)r+='  Tempo '+ex.tempo+(ex.rest?' · Repos '+ex.rest:'')+'\n';
+r+='  Prescription : '+wk.rx+'\n';
+if(ex.sets>0){var ns=parseInt((wk.rx.match(/(\d+)×/)||[])[1])||ex.sets;
+ if(ex.parts){
+  ex.parts.forEach(function(pn,pi){
+   r+='  ▸ '+pn+'\n';var charges=[],reps=[];
+   for(var si=0;si<ns;si++){var ck=gL(w,d,ei,si,'kg'+pi),cr=gL(w,d,ei,si,'rp'+pi);totalS++;if(ck||cr){doneS++;r+='    S'+(si+1)+': '+(cr?cr+'r':'?')+' × '+(ck?ck+'kg':'?')+'\n';if(ck)charges.push(parseFloat(ck));if(cr)reps.push(parseInt(cr))}else{r+='    S'+(si+1)+': ⬜\n'}}
+   if(charges.length){var avg=(charges.reduce(function(a,b){return a+b},0)/charges.length).toFixed(1);r+='    Moy : '+avg+'kg';if(reps.length)r+=' · Reps '+reps.join('-');r+='\n'}
+  });
+ }else{
+  var charges=[],reps=[];for(var si=0;si<ns;si++){var ck=gL(w,d,ei,si,'kg'),cr=gL(w,d,ei,si,'rp');totalS++;if(ck||cr){doneS++;r+='  S'+(si+1)+': '+(cr?cr+'r':'?')+' × '+(ck?ck+'kg':'?')+'\n';if(ck)charges.push(parseFloat(ck));if(cr)reps.push(parseInt(cr))}else{r+='  S'+(si+1)+': ⬜\n'}}if(charges.length){var avg=(charges.reduce(function(a,b){return a+b},0)/charges.length).toFixed(1);r+='  Charge moy : '+avg+'kg';var pc=w>1?gL(w-1,d,ei,0,'kg'):'';if(pc){var diff=(charges[0]-parseFloat(pc)).toFixed(1);r+=' (S'+(w-1)+' set1 : '+pc+'kg '+(diff>0?'▲+'+diff:diff<0?'▼'+diff:'=')+')'}r+='\n';if(reps.length)r+='  Reps : '+reps.join('-')+'\n'}
+ }
+}
+var cn=gN(w,d,ei);if(cn)r+='  📝 '+cn+'\n';r+='\n'});
+r+='──── STATS ────\n\n';if(totalS>0)r+='Séries loguées : '+doneS+'/'+totalS+' ('+Math.round(doneS/totalS*100)+'%)\n\n';
+r+='━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nColle dans Claude : "Analyse ma séance"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
+if(navigator.share){navigator.share({title:'FORGE S'+w+' '+DN[d],text:r}).catch(function(){cpExp(r)})}else{cpExp(r)}}
+function cpExp(r){if(navigator.clipboard){navigator.clipboard.writeText(r).then(function(){alert('Rapport copié ! Colle-le dans Claude.')}).catch(function(){fbCp(r)})}else{fbCp(r)}}
+function fbCp(r){var t=document.createElement('textarea');t.value=r;t.style.position='fixed';t.style.left='-9999px';document.body.appendChild(t);t.select();try{document.execCommand('copy');alert('Copié !')}catch(e){prompt('Copie manuelle :',r)}document.body.removeChild(t)}
+
+render();
+</script>
+</body></html>
